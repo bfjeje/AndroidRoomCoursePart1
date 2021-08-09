@@ -26,6 +26,7 @@ public class ListaAlunosView {
         dao = Room.databaseBuilder(context,
                 AgendaDatabase.class,
                 AgendaApplication.AGENDADB)
+                .allowMainThreadQueries()
                 .build()
                 .getRoomAlunoDAO();
     }

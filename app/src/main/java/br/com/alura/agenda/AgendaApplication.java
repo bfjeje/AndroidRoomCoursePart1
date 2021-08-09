@@ -24,6 +24,7 @@ public class AgendaApplication extends Application {
                 Room.databaseBuilder(this,
                         AgendaDatabase.class,
                         AGENDADB)
+                        .allowMainThreadQueries()
                         .build();
         RoomAlunoDAO dao = database.getRoomAlunoDAO();
         dao.salva(new Aluno("Alex", "1122223333", "alex@alura.com.br"));
