@@ -20,7 +20,6 @@ import br.com.alura.agenda.ui.ListaAlunosView;
 
 public class ListaAlunosActivity extends AppCompatActivity {
 
-    public static final String AGENDADB = "agenda.db";
     private static final String TITULO_APPBAR = "Lista de alunos";
     private ListaAlunosView listaAlunosView;
 

@@ -9,11 +9,10 @@ import android.view.MenuItem;
 import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.room.Room;
 
 import br.com.alura.agenda.R;
 import br.com.alura.agenda.database.AgendaDatabase;
-import br.com.alura.agenda.database.dao.RoomAlunoDAO;
+import br.com.alura.agenda.database.dao.AlunoDAO;
 import br.com.alura.agenda.model.Aluno;
 
 public class FormularioAlunoActivity extends AppCompatActivity {
@@ -23,18 +22,14 @@ public class FormularioAlunoActivity extends AppCompatActivity {
     private EditText campoNome;
     private EditText campoTelefone;
     private EditText campoEmail;
-    private RoomAlunoDAO dao;
+    private AlunoDAO dao;
     private Aluno aluno;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_formulario_aluno);
-        AgendaDatabase database = Room.databaseBuilder(this,
-                AgendaDatabase.class,
-                ListaAlunosActivity.AGENDADB)
-                .allowMainThreadQueries()
-                .build();
+        AgendaDatabase database = AgendaDatabase.getInstance(this);
         dao = database.getRoomAlunoDAO();
         inicializacaoDosCampos();
         carregaAluno();
